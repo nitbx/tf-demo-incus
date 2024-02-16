@@ -3,7 +3,7 @@ resource "incus_instance" "red" {
   count     = 1
   image     = "images:debian/12/cloud"
   ephemeral = false
-  profiles  = ["${incus_profile.users.name}"]
+  profiles  = ["${incus_profile.red.name}"]
   project   = incus_project.project.name
   wait_for_network = false
   config    = {
@@ -16,7 +16,7 @@ resource "incus_instance" "blue" {
   count     = 1
   image     = "images:debian/12/cloud"
   ephemeral = false
-  profiles  = ["${incus_profile.servers.name}"]
+  profiles  = ["${incus_profile.blue.name}"]
   project   = incus_project.project.name
   wait_for_network = false
   config    = {
@@ -29,7 +29,7 @@ resource "incus_instance" "purple" {
   count     = 1
   image     = "images:debian/12/cloud"
   ephemeral = false
-  profiles  = ["${incus_profile.iot.name}"]
+  profiles  = ["${incus_profile.purple.name}"]
   project   = incus_project.project.name
   wait_for_network = false
   config    = {
